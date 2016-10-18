@@ -13,7 +13,7 @@ class Account
   def print_statement
     data = []
     @transactions.each { |transaction|
-      data << { time: transaction.time, credit: transaction.credit, debit: transaction.debit, balance: @balance}
+      data << { date: transaction.date, credit: transaction.credit, debit: transaction.debit, balance: @balance}
     }
     tp data
   end

@@ -6,7 +6,7 @@ RSpec.describe Account do
 
   before (:each) do
     allow(transaction).to receive(:new).and_return(transaction)
-    allow(transaction).to receive(:time).and_return(Time.now)
+    allow(transaction).to receive(:date).and_return(Time.now)
     allow(transaction).to receive(:credit)
     allow(transaction).to receive(:debit)
   end

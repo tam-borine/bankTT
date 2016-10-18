@@ -7,8 +7,8 @@ RSpec.describe Transaction do
   before (:each) do
   end
 
-it "timestamps upon instantiation" do
-  expect(transaction.time).to be_within(10).of(Time.now)
+it "datestamps upon instantiation" do
+  expect(transaction.date).to eq( '18/10/16')
 end
 
 it "credit can be specified on instantiation" do
