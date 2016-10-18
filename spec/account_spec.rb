@@ -1,8 +1,12 @@
 require 'account'
 
 RSpec.describe Account do
-  subject(:account) {described_class.new}
-  let(:transaction) {double("transaction")}
+  let(:transaction) {object_double("transaction")}
+  subject(:account) {described_class.new(transaction)}
+
+  before (:each) do
+    allow(transaction).to receive(:new)
+  end
 
   it "has a balance initialised to 0" do
     expect(account.balance).to eq(0)
