@@ -15,7 +15,9 @@ RSpec.describe Account do
     expect{account.deposit(22)}.to change{account.balance}.from(0).to(22)
   end
 
-  it "can descrease its balance through withdraw method"
+  it "can descrease its balance through withdraw method" do
+    expect{account.withdraw(22)}.to change{account.balance}.from(0).to(-22)
+  end
 
   it "timestamps any change in balance (in or outgoing)"
 
