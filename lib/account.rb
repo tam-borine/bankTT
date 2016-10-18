@@ -1,4 +1,5 @@
 require_relative 'transaction'
+require 'table_print'
 class Account
 
   attr_accessor :balance, :transactions
@@ -10,17 +11,21 @@ class Account
   end
 
   def print_statement
-    #stuffs here
+    data = []
+    @transactions.each { |transaction|
+      data << { time: transaction.time, credit: transaction.credit, debit: transaction.debit, balance: @balance}
+    }
+    tp data
   end
 
   def deposit(amount)
-    @transactions << @transaction.new(amount,0)
     @balance += amount
+    @transactions << @transaction.new(amount,0, @balance)
   end
 
   def withdraw(amount)
-    @transactions << @transaction.new(0, amount)
     @balance -= amount
+    @transactions << @transaction.new(0, amount, @balance)
   end
 
   def print_balance

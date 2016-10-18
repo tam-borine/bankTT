@@ -6,6 +6,9 @@ RSpec.describe Account do
 
   before (:each) do
     allow(transaction).to receive(:new).and_return(transaction)
+    allow(transaction).to receive(:time).and_return(Time.now)
+    allow(transaction).to receive(:credit)
+    allow(transaction).to receive(:debit)
   end
 
   it "has a balance initialised to 0" do
@@ -15,7 +18,7 @@ RSpec.describe Account do
   it "can print a statement of transactions" do
     withdraw_amount_n_times(11,5)
     expect(account.balance).to eq (-55)
-    expect(account.print_statement).to include (account.balance)
+    expect(account.print_statement).to eq (account.balance)
   end
 
   it "can print its balance" do
