@@ -21,7 +21,11 @@ it "debit can be specified on instantiation" do
   expect(transaction.debit).to eq(55)
 end
 
-it "debit and credit default to nil if not specified on instantiation"
+it "debit and credit default to nil if not specified on instantiation" do
+  transaction = Transaction.new
+  expect(transaction.debit).to eq(nil)
+  expect(transaction.credit).to eq(nil)
+end
 
 
 
