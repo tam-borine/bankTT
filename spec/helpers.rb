@@ -12,4 +12,11 @@ module Helpers
     end
   end
 
+  def give_spy_methods(transaction)
+    allow(transaction).to receive(:new).and_return(transaction)
+    allow(transaction).to receive(:date).and_return(Time.now)
+    allow(transaction).to receive(:credit)
+    allow(transaction).to receive(:debit)
+  end
+
 end

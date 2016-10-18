@@ -1,14 +1,11 @@
 require 'account'
 
 RSpec.describe Account do
-  let(:transaction) {object_double("transaction")}
+  let(:transaction) {object_double("transaction", :credit)}
   subject(:account) {described_class.new(transaction)}
 
   before (:each) do
-    allow(transaction).to receive(:new).and_return(transaction)
-    allow(transaction).to receive(:date).and_return(Time.now)
-    allow(transaction).to receive(:credit)
-    allow(transaction).to receive(:debit)
+    give_spy_methods(transaction)
   end
 
   it "has a balance initialised to 0" do
