@@ -1,9 +1,11 @@
 require 'account'
 
 RSpec.describe Account do
-  subject {described_class.new}
+  subject(:account) {described_class.new}
 
-  it "has a balance"
+  it "has a balance initialised to 0" do
+    expect(account.balance).to eq(0)
+  end
 
   it "can print its balance"
 
