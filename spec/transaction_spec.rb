@@ -8,7 +8,7 @@ RSpec.describe Transaction do
   end
 
 it "datestamps upon instantiation" do
-  expect(transaction.date).to eq( '18/10/16')
+  expect(transaction.date).to eq('18/10/16')
 end
 
 it "credit can be specified on instantiation" do
