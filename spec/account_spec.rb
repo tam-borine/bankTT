@@ -26,8 +26,13 @@ RSpec.describe Account do
 
 
 
-  it "has transactions" do
+  it "a transaction is made upon deposit" do
     account.deposit(55)
+    expect(account.transactions).to include(transaction)
+  end
+
+  it "a transaction is made upon withdraw" do
+    account.withdraw(55)
     expect(account.transactions).to include(transaction)
   end
 
