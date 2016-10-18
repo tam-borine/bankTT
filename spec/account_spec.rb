@@ -7,7 +7,9 @@ RSpec.describe Account do
     expect(account.balance).to eq(0)
   end
 
-  it "can print its balance"
+  it "can print its balance" do
+    expect(account.print_balance).to eq(account.balance)
+  end
 
   it "can increase its balance through deposit method"
 
