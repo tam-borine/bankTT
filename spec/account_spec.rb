@@ -18,9 +18,6 @@ RSpec.describe Account do
     expect(account.print_statement.all, :balance).to eq (account.balance)
   end
 
-  it "can print its balance" do
-    expect(account.print_balance).to eq(account.balance)
-  end
 
   it "can increase its balance through deposit method" do
     expect{account.deposit(22)}.to change{account.balance}.from(0).to(22)
