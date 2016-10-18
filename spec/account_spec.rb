@@ -1,6 +1,7 @@
 require 'account'
 
 RSpec.describe Account do
+  subject {described_class.new}
 
   it "has a balance"
 
