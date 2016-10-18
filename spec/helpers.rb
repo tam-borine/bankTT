@@ -1,12 +1,15 @@
 module Helpers
 
-  def deposit(amount)
+  def withdraw_amount_n_times(amount,n)
+    n.times do
+      subject.withdraw(amount)
+    end
   end
 
-  def withdraw(amount)
-  end
-
-  def print_statement
+  def deposit_amount_n_times(amount,n)
+    n.times do
+      subject.deposit(amount)
+    end
   end
 
 end

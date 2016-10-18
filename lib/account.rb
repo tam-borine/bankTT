@@ -9,6 +9,10 @@ class Account
     @transactions = []
   end
 
+  def print_statement
+    #stuffs here
+  end
+
   def deposit(amount)
     @transactions << @transaction.new(amount,0)
     @balance += amount
@@ -22,5 +26,6 @@ class Account
   def print_balance
     @balance
   end
+
 
 end

@@ -12,6 +12,12 @@ RSpec.describe Account do
     expect(account.balance).to eq(0)
   end
 
+  it "can print a statement of transactions" do
+    withdraw_amount_n_times(11,5)
+    expect(account.balance).to eq (-55)
+    expect(account.print_statement).to include (account.balance)
+  end
+
   it "can print its balance" do
     expect(account.print_balance).to eq(account.balance)
   end
