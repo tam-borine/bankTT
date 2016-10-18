@@ -19,11 +19,13 @@ class Account
   end
 
   def deposit(amount)
+    amount = amount.round(2)
     @balance += amount
     @transactions << @transaction.new(amount,0, @balance)
   end
 
   def withdraw(amount)
+    amount = amount.round(2)
     @balance -= amount
     @transactions << @transaction.new(0, amount, @balance)
   end
