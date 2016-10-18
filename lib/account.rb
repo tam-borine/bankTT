@@ -1,7 +1,7 @@
 require_relative 'transaction'
 class Account
 
-  attr_reader :balance, :transactions
+  attr_accessor :balance, :transactions
 
   def initialize(transaction_class)
     @transaction = transaction_class
@@ -10,8 +10,8 @@ class Account
   end
 
   def deposit(amount)
+    @transactions << @transaction.new(amount,0)
     @balance += amount
-    @transaction.new(amount,0)
   end
 
   def withdraw(amount)

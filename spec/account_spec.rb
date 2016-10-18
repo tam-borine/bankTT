@@ -5,7 +5,7 @@ RSpec.describe Account do
   subject(:account) {described_class.new(transaction)}
 
   before (:each) do
-    allow(transaction).to receive(:new)
+    allow(transaction).to receive(:new).and_return(transaction)
   end
 
   it "has a balance initialised to 0" do
@@ -20,16 +20,17 @@ RSpec.describe Account do
     expect{account.deposit(22)}.to change{account.balance}.from(0).to(22)
   end
 
-  it "can descrease its balance through withdraw method" do
+  it "can decrease its balance through withdraw method" do
     expect{account.withdraw(22)}.to change{account.balance}.from(0).to(-22)
   end
 
+
+
   it "has transactions" do
+    account.deposit(55)
     expect(account.transactions).to include(transaction)
   end
 
-  it "timestamps any change in balance (in or outgoing)" do
-  end
 
 
 end
