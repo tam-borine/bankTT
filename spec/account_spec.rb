@@ -18,7 +18,7 @@ RSpec.describe Account do
   it "can print a statement of transactions" do
     withdraw_amount_n_times(11,5)
     expect(account.balance).to eq (-55)
-    expect(account.print_statement).to eq (account.balance)
+    expect(account.print_statement.all, :balance).to eq (account.balance)
   end
 
   it "can print its balance" do
