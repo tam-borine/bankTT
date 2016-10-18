@@ -24,8 +24,6 @@ RSpec.describe Account do
     expect{account.withdraw(22)}.to change{account.balance}.from(0).to(-22)
   end
 
-
-
   it "a transaction is made upon deposit" do
     account.deposit(55)
     expect(account.transactions).to include(transaction)
