@@ -2,6 +2,7 @@ require 'account'
 
 RSpec.describe Account do
   subject(:account) {described_class.new}
+  let(:transaction) {double("transaction")}
 
   it "has a balance initialised to 0" do
     expect(account.balance).to eq(0)
@@ -19,7 +20,12 @@ RSpec.describe Account do
     expect{account.withdraw(22)}.to change{account.balance}.from(0).to(-22)
   end
 
-  it "timestamps any change in balance (in or outgoing)"
+  it "has transactions" do
+    expect(account.transactions).to include(transaction)
+  end
+
+  it "timestamps any change in balance (in or outgoing)" do
+  end
 
 
 end
